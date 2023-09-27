@@ -15,15 +15,45 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { Component } from "react";
+import React, { Component ,useState,useEffect} from "react";
 import { useLocation } from "react-router-dom";
-import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
-
+import { Navbar, Container, Row,Col,Nav, Card, Button } from "react-bootstrap";
+import './card.css'
 import routes from "routes.js";
 
-function Header() {
-  const location = useLocation();
-  const mobileSidebarToggle = (e) => {
+function Header( { username , onLogout } ) {
+  const [remainingTime, setRemainingTime] = useState(1800);
+  const [showCard, setShowCard] = useState(false); 
+  const [isBlurred, setIsBlurred] = useState(true); // State for blur effect
+  const rootContainerClass = isBlurred ? "root-container blurred" : "root-container";
+
+  useEffect(() => {
+  const timer = setInterval(() => {
+    setRemainingTime((prevTime) => prevTime - 1);
+  }, 1000);
+
+  return () => {
+    clearInterval(timer);
+  };
+}, []);
+
+const minutes = Math.floor(remainingTime / 60);
+const seconds = remainingTime % 60;
+const location = useLocation();
+  // Function to handle cancel button click
+  const handleCancelClick = () => {
+    setShowCard(false);
+    setIsBlurred(false); // Remove the blur effect
+  };
+
+  useEffect(() => {
+    // Show the card when the component mounts
+    setShowCard(true);
+  }, []);
+
+
+
+const mobileSidebarToggle = (e) => {
     e.preventDefault();
     document.documentElement.classList.toggle("nav-open");
     var node = document.createElement("div");
@@ -44,7 +74,12 @@ function Header() {
     return "Brand";
   };
   return (
-    <Navbar bg="light" expand="lg">
+    <>
+  <div className={rootContainerClass}>
+
+ 
+  </div>
+    <Navbar bg="dark" expand="lg">
       <Container fluid>
         <div className="d-flex justify-content-center align-items-center ml-2 ml-lg-0">
           <Button
@@ -76,11 +111,11 @@ function Header() {
                 onClick={(e) => e.preventDefault()}
                 className="m-0"
               >
-                <i className="nc-icon nc-palette"></i>
+                {/* <i className="nc-icon nc-palette"></i> */}
                 <span className="d-lg-none ml-1">Dashboard</span>
               </Nav.Link>
             </Nav.Item>
-            <Dropdown as={Nav.Item}>
+            {/* <Dropdown as={Nav.Item}>
               <Dropdown.Toggle
                 as={Nav.Link}
                 data-toggle="dropdown"
@@ -124,20 +159,50 @@ function Header() {
                   Another notification
                 </Dropdown.Item>
               </Dropdown.Menu>
-            </Dropdown>
+            </Dropdown> */}
             <Nav.Item>
               <Nav.Link
                 className="m-0"
                 href="#pablo"
                 onClick={(e) => e.preventDefault()}
               >
-                <i className="nc-icon nc-zoom-split"></i>
-                <span className="d-lg-block"> Search</span>
+                <i className=""></i>
+                <span className="d-lg-block">Upgrade Account</span>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                className="m-0"
+                href="#pablo"
+                onClick={(e) => e.preventDefault()}
+              >
+                <i className=""></i>
+                <span className="d-lg-block">Adhar Advance</span>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                className="m-0"
+                href="#pablo"
+                onClick={(e) => e.preventDefault()}
+              >
+                <i className=""></i>
+                <span className="d-lg-block">Voter Advance</span>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                className="m-0"
+                href="#pablo"
+                onClick={(e) => e.preventDefault()}
+              >
+                <i className=""></i>
+                <span className="d-lg-block">News</span>
               </Nav.Link>
             </Nav.Item>
           </Nav>
           <Nav className="ml-auto" navbar>
-            <Nav.Item>
+            {/* <Nav.Item>
               <Nav.Link
                 className="m-0"
                 href="#pablo"
@@ -145,8 +210,8 @@ function Header() {
               >
                 <span className="no-icon">Account</span>
               </Nav.Link>
-            </Nav.Item>
-            <Dropdown as={Nav.Item}>
+            </Nav.Item> */}
+            {/* <Dropdown as={Nav.Item}>
               <Dropdown.Toggle
                 aria-expanded={false}
                 aria-haspopup={true}
@@ -191,20 +256,22 @@ function Header() {
                   Separated link
                 </Dropdown.Item>
               </Dropdown.Menu>
-            </Dropdown>
-            <Nav.Item>
-              <Nav.Link
-                className="m-0"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                <span className="no-icon">Log out</span>
-              </Nav.Link>
-            </Nav.Item>
+            </Dropdown> */}
+         <Nav.Item>
+          {/* <h5>Welcome {username}</h5>
+          <button onClick={onLogout}>Logout</button> */}
+      <Nav.Link className="m-0" href="#pablo" onClick={(e) => e.preventDefault()}>
+        <span className="no-icon text-light" >
+          You will be Logged out in {minutes}m: {seconds}s
+        </span>
+      </Nav.Link>
+    </Nav.Item>
+          
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </>
   );
 }
 

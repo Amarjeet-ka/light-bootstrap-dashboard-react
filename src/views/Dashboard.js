@@ -21,19 +21,61 @@ function Dashboard() {
     <>
       <Container fluid>
         <Row>
-          <Col lg="3" sm="6">
+          <Col>
+          <Card.Body style={{ textAlign: 'center' }}>
+  <div style={{ direction: 'rtl',backgroundColor:'brown',color:'white' }}>
+    <p >
+      आवश्यक सूचना:- 👉यह पोर्टल सिर्फ आपको प्रिंट करने की सुबिधा प्रदान करता हैं !! ना की किसी भी प्रकार का सुधार करने का अगर कोई भी किसी भी प्रकार का सुधार करता है तो उसका जिम्मेदार वो खुद होगा ना की एडमिन ये वेबसाइट आपको सिर्फ PVC प्रिंटिंग की सर्विस प्रदान ये वेबसाइट आपके स्वेक्षा से PVC कार्ड प्रिंटिंग का काम करती है | धन्यवाद 👍👈
+    </p>
+  </div>
+</Card.Body>
+
+          </Col>
+        </Row>
+        <Row>
+          
+          <Col lg="12" sm="6">
+            <Card className="card-stats">
+              <Card.Body>
+                <Row>
+                  <Col xs="7">
+                    <div className="numbers">
+                      <p className="card-category">प्रिये, आपका अकाउंट एक्टिवेट हो चूका है, आपका वॉलेट बैलेंस कम है इसलिए रिचार्ज करे और लाभ उठाये</p>
+                    </div>
+                  </Col>
+                </Row>
+              </Card.Body>
+              <Card.Footer>
+                <hr></hr>
+                <div className="">
+                  <i className="text-danger  "> Recharge Pending</i>
+                 
+                </div>
+                <Col>
+           {/* <Button className="text-info">
+            Click here to Recharge
+           </Button> */}
+           </Col>
+              </Card.Footer>
+            </Card>
+          </Col>          
+          
+        </Row>
+        <Row style={{ textAlign: "center", justifyContent: "space-around" }}>
+
+<Col lg="3" sm="6">
             <Card className="card-stats">
               <Card.Body>
                 <Row>
                   <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-chart text-warning"></i>
+                      <i className="text-warning">₹</i>
                     </div>
                   </Col>
                   <Col xs="7">
                     <div className="numbers">
-                      <p className="card-category">Number</p>
-                      <Card.Title as="h4">150GB</Card.Title>
+                      <p className="card-category">Points</p>
+                      <Card.Title as="h4">0</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -42,7 +84,7 @@ function Dashboard() {
                 <hr></hr>
                 <div className="stats">
                   <i className="fas fa-redo mr-1"></i>
-                  Update Now
+                  Wallet Balance
                 </div>
               </Card.Footer>
             </Card>
@@ -53,13 +95,13 @@ function Dashboard() {
                 <Row>
                   <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-light-3 text-success"></i>
+                      <i className="text-warning">₹</i>
                     </div>
                   </Col>
                   <Col xs="7">
                     <div className="numbers">
-                      <p className="card-category">Revenue</p>
-                      <Card.Title as="h4">$ 1,345</Card.Title>
+                      <p className="card-category">Points </p>
+                      <Card.Title as="h4">0</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -68,7 +110,7 @@ function Dashboard() {
                 <hr></hr>
                 <div className="stats">
                   <i className="far fa-calendar-alt mr-1"></i>
-                  Last day
+                  Voter Points
                 </div>
               </Card.Footer>
             </Card>
@@ -79,13 +121,13 @@ function Dashboard() {
                 <Row>
                   <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-vector text-danger"></i>
+                      <i className="text-warning">₹</i>
                     </div>
                   </Col>
                   <Col xs="7">
                     <div className="numbers">
-                      <p className="card-category">Errors</p>
-                      <Card.Title as="h4">23</Card.Title>
+                      <p className="card-category">Points </p>
+                      <Card.Title as="h4">0</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -94,104 +136,41 @@ function Dashboard() {
                 <hr></hr>
                 <div className="stats">
                   <i className="far fa-clock-o mr-1"></i>
-                  In the last hour
-                </div>
-              </Card.Footer>
-            </Card>
-          </Col>
-          <Col lg="3" sm="6">
-            <Card className="card-stats">
-              <Card.Body>
-                <Row>
-                  <Col xs="5">
-                    <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-favourite-28 text-primary"></i>
-                    </div>
-                  </Col>
-                  <Col xs="7">
-                    <div className="numbers">
-                      <p className="card-category">Followers</p>
-                      <Card.Title as="h4">+45K</Card.Title>
-                    </div>
-                  </Col>
-                </Row>
-              </Card.Body>
-              <Card.Footer>
-                <hr></hr>
-                <div className="stats">
-                  <i className="fas fa-redo mr-1"></i>
-                  Update now
+                  Ayushman Card Points
                 </div>
               </Card.Footer>
             </Card>
           </Col>
         </Row>
-        <Row>
-          <Col md="8">
-            <Card>
-              <Card.Header>
+        <Row style={{ justifyContent: "center" }}>
+          <Col md="10">
+          <Card style={{ border: '2px solid #ccc', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
+  {/* Rest of your card content */}
+
+              {/* <Card.Header>
                 <Card.Title as="h4">Users Behavior</Card.Title>
                 <p className="card-category">24 Hours performance</p>
-              </Card.Header>
-              <Card.Body>
-                <div className="ct-chart" id="chartHours">
-                  <ChartistGraph
-                    data={{
-                      labels: [
-                        "9:00AM",
-                        "12:00AM",
-                        "3:00PM",
-                        "6:00PM",
-                        "9:00PM",
-                        "12:00PM",
-                        "3:00AM",
-                        "6:00AM",
-                      ],
-                      series: [
-                        [287, 385, 490, 492, 554, 586, 698, 695],
-                        [67, 152, 143, 240, 287, 335, 435, 437],
-                        [23, 113, 67, 108, 190, 239, 307, 308],
-                      ],
-                    }}
-                    type="Line"
-                    options={{
-                      low: 0,
-                      high: 800,
-                      showArea: false,
-                      height: "245px",
-                      axisX: {
-                        showGrid: false,
-                      },
-                      lineSmooth: true,
-                      showLine: true,
-                      showPoint: true,
-                      fullWidth: true,
-                      chartPadding: {
-                        right: 50,
-                      },
-                    }}
-                    responsiveOptions={[
-                      [
-                        "screen and (max-width: 640px)",
-                        {
-                          axisX: {
-                            labelInterpolationFnc: function (value) {
-                              return value[0];
-                            },
-                          },
-                        },
-                      ],
-                    ]}
-                  />
-                </div>
+              </Card.Header> */}
+              <Card.Body style={{ textAlign: "center" }}>
+                <h4 style={{ color: "blue",fontWeight:'bold' }}>
+                  Welcome Dear User All Services Working
+                </h4>
+                <h3 style={{ color: "red" }}>
+                  PhonePe Server Down. Dont Use PhonePe... use Only - Paytm,
+                  Gpay, AmazonPay, Bhim Upi Etc....
+                </h3>
+                <h4 style={{ color: "green" }}>
+                  इस पोर्टल की सभी Problem को ठीक कर दिया गया है, और सभी सेवाएं
+                  चालू है, आप लोग बिंदास पोर्टल का लाभ उठाए |
+                </h4>
+                <h4 style={{ color: "purple" }}>
+                  पोर्टल पूरी तरह से अपडेट हो गया है और पोर्टल की सभी सेवाएं
+                  चालू हैं। अगर आप लोगों को किसी प्रकार कोई समस्या है तो Mail
+                  Box मे Mail करें, धन्यवाद ...
+                </h4>
               </Card.Body>
+
               <Card.Footer>
-                <div className="legend">
-                  <i className="fas fa-circle text-info"></i>
-                  Open <i className="fas fa-circle text-danger"></i>
-                  Click <i className="fas fa-circle text-warning"></i>
-                  Click Second Time
-                </div>
                 <hr></hr>
                 <div className="stats">
                   <i className="fas fa-history"></i>
@@ -200,7 +179,7 @@ function Dashboard() {
               </Card.Footer>
             </Card>
           </Col>
-          <Col md="4">
+          {/* <Col md="4">
             <Card>
               <Card.Header>
                 <Card.Title as="h4">Email Statistics</Card.Title>
@@ -232,9 +211,9 @@ function Dashboard() {
                 </div>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
-        <Row>
+        {/* <Row>
           <Col md="6">
             <Card>
               <Card.Header>
@@ -631,7 +610,7 @@ function Dashboard() {
               </Card.Footer>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </>
   );
